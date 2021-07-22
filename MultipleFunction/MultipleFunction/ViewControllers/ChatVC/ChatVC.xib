@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatVC" customModule="MultipleFunction" customModuleProvider="target">
+            <connections>
+                <outlet property="buttonSend" destination="sN1-rf-kQ5" id="Utd-zo-cAP"/>
+                <outlet property="tableView" destination="e52-BU-War" id="0tv-Hk-QXL"/>
+                <outlet property="textViewMessage" destination="eqj-2K-tyn" id="s4Q-8m-jEt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fvd-17-1SO">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e52-BU-War">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="I4L-S9-Byo">
+                            <rect key="frame" x="10" y="768" width="394" height="40"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqj-2K-tyn">
+                                    <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="textColor" systemColor="labelColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sN1-rf-kQ5">
+                                    <rect key="frame" x="344" y="0.0" width="50" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="FUZ-AM-ka2"/>
+                                    </constraints>
+                                    <state key="normal" title="Send"/>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="QLi-qG-Cfg"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="e52-BU-War" firstAttribute="top" secondItem="fvd-17-1SO" secondAttribute="top" id="1z0-EH-Bhw"/>
+                        <constraint firstAttribute="trailing" secondItem="e52-BU-War" secondAttribute="trailing" id="D7V-U6-lrP"/>
+                        <constraint firstItem="e52-BU-War" firstAttribute="leading" secondItem="fvd-17-1SO" secondAttribute="leading" id="MN1-KW-WNW"/>
+                        <constraint firstItem="I4L-S9-Byo" firstAttribute="leading" secondItem="fvd-17-1SO" secondAttribute="leading" constant="10" id="MZN-OP-JJb"/>
+                        <constraint firstAttribute="trailing" secondItem="I4L-S9-Byo" secondAttribute="trailing" constant="10" id="RnK-pE-3jW"/>
+                        <constraint firstItem="I4L-S9-Byo" firstAttribute="top" secondItem="e52-BU-War" secondAttribute="bottom" constant="10" id="hwm-eL-Uty"/>
+                        <constraint firstAttribute="bottom" secondItem="I4L-S9-Byo" secondAttribute="bottom" constant="10" id="uh8-xX-OZc"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fvd-17-1SO" secondAttribute="bottom" id="EIE-fB-zx1"/>
+                <constraint firstItem="fvd-17-1SO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aVg-Nx-C3c"/>
+                <constraint firstItem="fvd-17-1SO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qLJ-Yb-sCJ"/>
+                <constraint firstItem="fvd-17-1SO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qM8-NZ-3Rw"/>
+            </constraints>
+            <point key="canvasLocation" x="34.782608695652179" y="78.348214285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

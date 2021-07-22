@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MusicVC: UIViewController {
+class MusicVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()

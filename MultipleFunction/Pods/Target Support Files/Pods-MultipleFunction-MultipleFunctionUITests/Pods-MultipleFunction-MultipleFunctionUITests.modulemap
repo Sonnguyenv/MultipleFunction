@@ -1,0 +1,6 @@
+framework module Pods_MultipleFunction_MultipleFunctionUITests {
+  umbrella header "Pods-MultipleFunction-MultipleFunctionUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

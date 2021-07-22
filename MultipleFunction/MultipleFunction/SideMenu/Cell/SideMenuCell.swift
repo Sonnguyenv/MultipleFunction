@@ -21,10 +21,16 @@ class SideMenuCell: UITableViewCell {
         // Background
         self.backgroundColor = .clear
         
+
+    }
+
+    func parseData(_ type: TypeSideMenu) {
         // Icon
+        self.iconImageView.image = type.image
         self.iconImageView.tintColor = .white
-        
+
         // Title
         self.titleLabel.textColor = .white
+        self.titleLabel.text = type.title
     }
 }

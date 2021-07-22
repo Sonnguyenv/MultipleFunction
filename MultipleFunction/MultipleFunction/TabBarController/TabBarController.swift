@@ -8,37 +8,37 @@
 import UIKit
 
 enum TypeTabbar {
-    case house
-    case music
-    case film
-    
+    case home
+    case heart
+    case search
+
     var title: String {
         switch self {
-        case .house:
-            return "House"
-        case .music:
-            return "Music"
-        case .film:
+        case .home:
+            return "Home"
+        case .heart:
+            return "Favorites"
+        case .search:
             return "Film"
         }
     }
     
     var image: UIImage? {
         switch self {
-        case .house:
-            return UIImage(systemName: "house.fill")!
-        case .music:
-            return UIImage(systemName: "music.note")!
-        case .film:
-            return UIImage(systemName: "film.fill")!
+        case .home:
+            return UIImage(named: "home")
+        case .heart:
+            return UIImage(named: "heart")
+        case .search:
+            return UIImage(named: "search")
         }
     }
 }
 
 class TabBarController: UITabBarController {
 
-    private let typeTabbars: [TypeTabbar] = [.house, .music, .film]
-    private let listVC: [UIViewController] = [HouseVC(), MusicVC(), FilmVC()]
+    private let typeTabbars: [TypeTabbar] = [.home, .heart, .search]
+    private let listVC: [UIViewController] = [HomeVC(), MusicVC(), FilmVC()]
     private var index: Int = 0
 
     override func viewDidLoad() {
@@ -51,7 +51,7 @@ class TabBarController: UITabBarController {
         self.typeTabbars.enumerated().forEach { index, type in
             guard let vc = listVC[safe: index] else {return}
             let navi = UINavigationController(rootViewController: vc)
-            navi.tabBarItem = UITabBarItem(title: "", image: type.image, selectedImage: type.image)
+            navi.tabBarItem = UITabBarItem(title: type.title, image: type.image, selectedImage: type.image)
             vc.navigationItem.title = type.title
             viewControllers.append(navi)
         }
@@ -68,3 +68,6 @@ extension TabBarController: UITabBarControllerDelegate {
     }
 }
 
+class TabbarEvent: EventType {
+
+}

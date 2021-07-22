@@ -7,8 +7,41 @@
 
 import UIKit
 
+enum TypeSideMenu {
+    case home
+    case user
+    case setting
+    case logout
+
+    var image: UIImage? {
+        switch self {
+        case .home:
+            return UIImage(named: "home")
+        case .user:
+            return UIImage(named: "user")
+        case .setting:
+            return UIImage(named: "settings")
+        case .logout:
+            return UIImage(named: "exit")
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .home:
+            return "Home"
+        case .user:
+            return "User"
+        case .setting:
+            return "Setting"
+        case .logout:
+            return "Logout"
+        }
+    }
+}
+
 protocol SideMenuDelegate: AnyObject {
-    func selectItem(_ row: Int)
+    func selectItem(_ type: TypeSideMenu)
 }
 
 class SideMenuVC: UIViewController {
@@ -20,15 +53,7 @@ class SideMenuVC: UIViewController {
 
     var defaultHighlightedCell: Int = 0
 
-    var menu: [SideMenuModel] = [
-        SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
-        SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Music"),
-        SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Movies"),
-        SideMenuModel(icon: UIImage(systemName: "book.fill")!, title: "Books"),
-        SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Profile"),
-        SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Settings"),
-        SideMenuModel(icon: UIImage(systemName: "hand.thumbsup.fill")!, title: "Like us on facebook")
-    ]
+    var menu: [TypeSideMenu] = [.home, .user, .setting, .logout]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +87,7 @@ class SideMenuVC: UIViewController {
 
 extension SideMenuVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 50
     }
 }
 
@@ -76,8 +101,7 @@ extension SideMenuVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.identifier, for: indexPath) as? SideMenuCell else { fatalError("xib doesn't exist") }
 
-        cell.iconImageView.image = self.menu[indexPath.row].icon
-        cell.titleLabel.text = self.menu[indexPath.row].title
+        cell.parseData(self.menu[indexPath.row])
 
         // Highlighted color
         let myCustomSelectionColorView = UIView()
@@ -87,11 +111,16 @@ extension SideMenuVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.selectItem(indexPath.row)
-        // Remove highlighted color when you press the 'Profile' and 'Like us on facebook' cell
-        if indexPath.row == 4 || indexPath.row == 6 {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
+        self.delegate?.selectItem(self.menu[indexPath.row])
     }
 }
+
+class SideEvent: EventType {
+    var type: TypeSideMenu = .home
+
+    init(_ type: TypeSideMenu) {
+        self.type = type
+    }
+}
+
 

@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "settings.pdf",
       "idiom" : "universal"
     }
   ],

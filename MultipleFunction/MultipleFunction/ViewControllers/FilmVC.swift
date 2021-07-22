@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FilmVC: UIViewController {
+class FilmVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()

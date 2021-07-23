@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 final class Global: NSObject {
     static let shared = Global()
 
     private struct Keywords {
         static let displayName = "DISPLAY_NAME"
+        static let user = "USER"
     }
 
     var displayName: String {

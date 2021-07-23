@@ -7,41 +7,56 @@
 
 import UIKit
 import RxSwift
+import FirebaseAuth
+import FirebaseFirestore
 
 class BaseVC: UIViewController {
 
+    let child = SpinnerViewController()
+
     let disposeBag = DisposeBag()
 
-    var abc = false
-
+    let user = Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        initSideMenu(true)
     }
 
-    func initSideMenu(_ isShow: Bool) {
-        if isShow {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .done,
-                                                                    target: self, action: #selector(showSideMenu))
-            self.navigationItem.leftBarButtonItem?.tintColor = .black
-        } else {
-            self.navigationItem.leftBarButtonItem = nil
+    // MARK: - Actions
+    @objc func logout() {
+        let alertController = UIAlertController(
+            title: nil,
+            message: "Are you sure you want to sign out?",
+            preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(cancelAction)
+
+        let signOutAction = UIAlertAction( title: "Sign Out", style: .destructive) { _ in
+            do {
+                Global.shared.clearAll()
+                try Auth.auth().signOut()
+            } catch {
+                print("Error signing out: \(error.localizedDescription)")
+            }
         }
+        alertController.addAction(signOutAction)
+
+        present(alertController, animated: true)
     }
 
-    @objc func showSideMenu() {
-        EventHub.post(SideEvent(.home))
+    func onShowProgress() {
+        // add the spinner view controller
+        self.addChild(child)
+        self.child.view.frame = view.frame
+        self.view.addSubview(child.view)
+        self.child.didMove(toParent: self)
+
     }
 
-    func login() {
-        let mainVC = MainVC()
-        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(mainVC)
-    }
-
-    func logout() {
-        Global.shared.clearAll()
-        let loginVC = LoginVC()
-        (UIApplication.shared.delegate as? AppDelegate)?.changeRootViewController(loginVC)
+    func onDismissProgress() {
+        self.child.willMove(toParent: nil)
+        self.child.view.removeFromSuperview()
+        self.child.removeFromParent()
     }
 }
 

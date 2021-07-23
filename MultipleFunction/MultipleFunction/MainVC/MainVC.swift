@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MainVC: BaseVC {
         
@@ -20,7 +22,7 @@ class MainVC: BaseVC {
     private var sideMenuTrailingConstraint: NSLayoutConstraint!
 
     var gestureEnabled: Bool = true
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,13 +31,6 @@ class MainVC: BaseVC {
         }
         
         self.setupSideMenu()
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate { _ in
-            self.sideMenuTrailingConstraint.constant = self.isExpanded ? 0 : (-self.sideMenuRevealWidth)
-        }
     }
     
     func setupSideMenu() {

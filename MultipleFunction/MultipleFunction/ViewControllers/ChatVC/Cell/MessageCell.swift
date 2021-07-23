@@ -9,6 +9,7 @@ import UIKit
 
 class MessageCell: UITableViewCell {
 
+    @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var viewBound: UIView!
 
     @IBOutlet weak var labelMessage: UILabel!
@@ -18,9 +19,11 @@ class MessageCell: UITableViewCell {
         self.selectionStyle = .none
         self.viewBound.backgroundColor = .orange
         self.viewBound.layer.cornerRadius = 20
+        self.labelMessage.textColor = .white
     }
 
     func parseData(_ model: MessageModel) {
-        self.labelMessage.text = model.message
+        self.labelName.text = model.userName
+        self.labelMessage.text = model.content
     }
 }

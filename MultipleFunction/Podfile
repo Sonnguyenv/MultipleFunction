@@ -8,6 +8,9 @@ target 'MultipleFunction' do
   # Pods for MultipleFunction
 
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'

@@ -8,12 +8,11 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 class LoginVC: BaseVC {
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var buttonLogin: UIButton!
-
-//    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +30,16 @@ class LoginVC: BaseVC {
             })
             .disposed(by: disposeBag)
 
-        buttonLogin.rx.tap.subscribe(onNext: {
-            if Global.shared.displayName.isEmpty {
-                return
-            }
-            self.login()
-        }).disposed(by: disposeBag)
+        let editingDidEndOnExit = textFieldName.rx.controlEvent([.editingDidEndOnExit]).single()
+        let actionLogin = buttonLogin.rx.tap.single()
+
+        Observable.merge(actionLogin, editingDidEndOnExit)
+            .subscribe(onNext: {
+                if Global.shared.displayName.isEmpty {
+                    return
+                }
+                Auth.auth().signInAnonymously()
+//                self.login()
+            }).disposed(by: disposeBag)
     }
 }

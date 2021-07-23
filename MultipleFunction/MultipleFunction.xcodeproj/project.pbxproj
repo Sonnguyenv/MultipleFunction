@@ -38,6 +38,12 @@
 		22AE90B126A96C93007C82A2 /* ChatVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AE90AF26A96C93007C82A2 /* ChatVC.xib */; };
 		22AE90B726A976B4007C82A2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE90B526A976B4007C82A2 /* MessageCell.swift */; };
 		22AE90B826A976B4007C82A2 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AE90B626A976B4007C82A2 /* MessageCell.xib */; };
+		22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090026AA797F004485EF /* UITextFieldExtension.swift */; };
+		22D4090626AAAFEC004485EF /* UserlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090526AAAFEC004485EF /* UserlModel.swift */; };
+		22D4090A26AAB61B004485EF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090826AAB61B004485EF /* UserCell.swift */; };
+		22D4090B26AAB61B004485EF /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D4090926AAB61B004485EF /* UserCell.xib */; };
+		22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090C26AAC7AB004485EF /* MessageModel.swift */; };
+		22D4091126AAD7CB004485EF /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090F26AAD7CB004485EF /* SpinnerViewController.swift */; };
 		488482E26BD462E2839AA6BF /* Pods_MultipleFunction_MultipleFunctionUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B2FE0D43C97EE1695A489B /* Pods_MultipleFunction_MultipleFunctionUITests.framework */; };
 		8637D883B55F1749EDA3D57A /* Pods_MultipleFunctionTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CAC1B6B0AE8928496E6F73F /* Pods_MultipleFunctionTests.framework */; };
 		90137F0B2347BE6EBD12DB34 /* Pods_MultipleFunction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DCD365FF67594852C9D7322 /* Pods_MultipleFunction.framework */; };
@@ -99,6 +105,12 @@
 		22AE90AF26A96C93007C82A2 /* ChatVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatVC.xib; sourceTree = "<group>"; };
 		22AE90B526A976B4007C82A2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		22AE90B626A976B4007C82A2 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		22D4090026AA797F004485EF /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		22D4090526AAAFEC004485EF /* UserlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserlModel.swift; sourceTree = "<group>"; };
+		22D4090826AAB61B004485EF /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		22D4090926AAB61B004485EF /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		22D4090C26AAC7AB004485EF /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		22D4090F26AAD7CB004485EF /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		316C2C907A1598CAFA15960E /* Pods-MultipleFunction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultipleFunction.release.xcconfig"; path = "Target Support Files/Pods-MultipleFunction/Pods-MultipleFunction.release.xcconfig"; sourceTree = "<group>"; };
 		6CAC1B6B0AE8928496E6F73F /* Pods_MultipleFunctionTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultipleFunctionTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DCD365FF67594852C9D7322 /* Pods_MultipleFunction.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultipleFunction.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -169,6 +181,7 @@
 				02CDACB126A8716A005CD797 /* TabBarController */,
 				02CDACB326A8716A005CD797 /* Extension */,
 				02CDACB526A8716A005CD797 /* SideMenu */,
+				22D4090E26AAD7AB004485EF /* Commom */,
 				228F95E226A9579E001641FD /* Utils */,
 				02CDACCE26A881E0005CD797 /* EventHub */,
 			);
@@ -210,9 +223,8 @@
 		02CDACAA26A8716A005CD797 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				22D4090426AAAFCA004485EF /* HomeVC */,
 				22AE90B326A97669007C82A2 /* ChatVC */,
-				02CDACAB26A8716A005CD797 /* HomeVC.swift */,
-				02CDACAC26A8716A005CD797 /* HomeVC.xib */,
 				02CDACAD26A8716A005CD797 /* FilmVC.swift */,
 				02CDACAE26A8716A005CD797 /* FilmVC.xib */,
 				02CDACB026A8716A005CD797 /* MusicVC.swift */,
@@ -232,6 +244,7 @@
 		02CDACB326A8716A005CD797 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				22D4090026AA797F004485EF /* UITextFieldExtension.swift */,
 				02CDACB426A8716A005CD797 /* ArrayExtension.swift */,
 			);
 			path = Extension;
@@ -297,6 +310,7 @@
 				22AE90B426A97676007C82A2 /* Cell */,
 				22AE90AE26A96C93007C82A2 /* ChatVC.swift */,
 				22AE90AF26A96C93007C82A2 /* ChatVC.xib */,
+				22D4090C26AAC7AB004485EF /* MessageModel.swift */,
 			);
 			path = ChatVC;
 			sourceTree = "<group>";
@@ -308,6 +322,34 @@
 				22AE90B626A976B4007C82A2 /* MessageCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		22D4090426AAAFCA004485EF /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				22D4090726AAB609004485EF /* Cell */,
+				02CDACAB26A8716A005CD797 /* HomeVC.swift */,
+				02CDACAC26A8716A005CD797 /* HomeVC.xib */,
+				22D4090526AAAFEC004485EF /* UserlModel.swift */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		22D4090726AAB609004485EF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				22D4090826AAB61B004485EF /* UserCell.swift */,
+				22D4090926AAB61B004485EF /* UserCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		22D4090E26AAD7AB004485EF /* Commom */ = {
+			isa = PBXGroup;
+			children = (
+				22D4090F26AAD7CB004485EF /* SpinnerViewController.swift */,
+			);
+			path = Commom;
 			sourceTree = "<group>";
 		};
 		4863B8B75005CA47A65106FE /* Pods */ = {
@@ -447,6 +489,7 @@
 				22AE90B826A976B4007C82A2 /* MessageCell.xib in Resources */,
 				02CDAC8626A870CF005CD797 /* LaunchScreen.storyboard in Resources */,
 				22AE90B126A96C93007C82A2 /* ChatVC.xib in Resources */,
+				22D4090B26AAB61B004485EF /* UserCell.xib in Resources */,
 				02CDACC026A8716A005CD797 /* MusicVC.xib in Resources */,
 				02CDACC726A8716A005CD797 /* SideMenuCell.xib in Resources */,
 				02CDACC526A8716A005CD797 /* SideMenuVC.xib in Resources */,
@@ -586,16 +629,21 @@
 				02CDACCB26A87B5A005CD797 /* MainVC.swift in Sources */,
 				02CDACBC26A8716A005CD797 /* HomeVC.swift in Sources */,
 				02CDACC126A8716A005CD797 /* MusicVC.swift in Sources */,
+				22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */,
+				22D4090A26AAB61B004485EF /* UserCell.swift in Sources */,
 				02CDACC326A8716A005CD797 /* ArrayExtension.swift in Sources */,
+				22D4090626AAAFEC004485EF /* UserlModel.swift in Sources */,
 				02CDACC826A8716A005CD797 /* SideMenuCell.swift in Sources */,
 				228F95E426A957F3001641FD /* Global.swift in Sources */,
 				02CDACD026A881F4005CD797 /* EventHub.swift in Sources */,
 				02CDACBE26A8716A005CD797 /* FilmVC.swift in Sources */,
 				22AE90B026A96C93007C82A2 /* ChatVC.swift in Sources */,
 				228F95DA26A9149A001641FD /* BaseVC.swift in Sources */,
+				22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */,
 				228F95E026A951F9001641FD /* LoginVC.swift in Sources */,
 				02CDACC426A8716A005CD797 /* SideMenuVC.swift in Sources */,
 				02CDACC226A8716A005CD797 /* TabBarController.swift in Sources */,
+				22D4091126AAD7CB004485EF /* SpinnerViewController.swift in Sources */,
 				02CDAC7A26A870CE005CD797 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

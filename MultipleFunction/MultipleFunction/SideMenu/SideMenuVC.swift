@@ -116,11 +116,7 @@ extension SideMenuVC: UITableViewDataSource {
 }
 
 class SideEvent: EventType {
-    var type: TypeSideMenu = .home
-
-    init(_ type: TypeSideMenu) {
-        self.type = type
-    }
+    
 }
 
 

@@ -11,25 +11,25 @@ import FirebaseFirestore
 
 struct MessageModel {
     let id: String?
-    var messageId: String? {
-      return id ?? UUID().uuidString
-    }
+    var userId: String?
     let userName: String?
     let createdDate: Date
     var content: String
 
-    init(user: UserlModel, content: String) {
-        self.userName = user.name
+    init(userName: String, content: String) {
+        self.id = nil
+        self.userName = userName
         self.content = content
         self.createdDate = Date()
-        self.id = nil
+        self.userId = UIDevice.current.identifierForVendor?.uuidString
     }
 
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         guard let createdDate = data["created"] as? Timestamp,
             let userName = data["userName"] as? String,
-            let content = data["content"] as? String
+            let content = data["content"] as? String,
+            let userId = data["userId"] as? String
         else {
             return nil
         }
@@ -38,6 +38,7 @@ struct MessageModel {
         self.userName = userName
         self.createdDate = createdDate.dateValue()
         self.content = content
+        self.userId = userId
     }
 
     func toDocument() -> [String: Any] {
@@ -46,9 +47,10 @@ struct MessageModel {
         if let id = id {
             document["id"] = id
         }
-        document = ["content": content]
-        document = ["created": createdDate]
-
+        document["userName"] =  userName ?? ""
+        document["content"] = content
+        document["created"] = createdDate
+        document["userId"] = userId
         return document
     }
 }

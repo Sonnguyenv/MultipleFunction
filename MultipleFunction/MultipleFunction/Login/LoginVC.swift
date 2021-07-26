@@ -39,7 +39,6 @@ class LoginVC: BaseVC {
                     return
                 }
                 Auth.auth().signInAnonymously()
-//                self.login()
             }).disposed(by: disposeBag)
     }
 }

@@ -9,9 +9,11 @@ import UIKit
 import FirebaseFirestore
 
 struct UserlModel {
-    let id: String?
+    var id: String?
     var name: String?
 
+    init() {}
+    
     init(name: String) {
         id = nil
         self.name = name

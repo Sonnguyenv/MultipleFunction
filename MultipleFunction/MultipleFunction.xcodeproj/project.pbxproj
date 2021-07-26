@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0204977226AC6C31000495F8 /* ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0204977126AC6C31000495F8 /* ChatBarView.swift */; };
+		0204977426AC6C3F000495F8 /* ChatBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0204977326AC6C3F000495F8 /* ChatBarView.xib */; };
 		02CDAC7A26A870CE005CD797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7926A870CE005CD797 /* AppDelegate.swift */; };
 		02CDAC7E26A870CE005CD797 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7D26A870CE005CD797 /* ViewController.swift */; };
 		02CDAC8126A870CE005CD797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CDAC7F26A870CE005CD797 /* Main.storyboard */; };
@@ -67,6 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0204977126AC6C31000495F8 /* ChatBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBarView.swift; sourceTree = "<group>"; };
+		0204977326AC6C3F000495F8 /* ChatBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatBarView.xib; sourceTree = "<group>"; };
 		02CDAC7626A870CE005CD797 /* MultipleFunction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleFunction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CDAC7926A870CE005CD797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02CDAC7D26A870CE005CD797 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0204977026AC6BFA000495F8 /* TextViewBar */ = {
+			isa = PBXGroup;
+			children = (
+				0204977126AC6C31000495F8 /* ChatBarView.swift */,
+				0204977326AC6C3F000495F8 /* ChatBarView.xib */,
+			);
+			path = TextViewBar;
+			sourceTree = "<group>";
+		};
 		02CDAC6D26A870CE005CD797 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +320,7 @@
 		22AE90B326A97669007C82A2 /* ChatVC */ = {
 			isa = PBXGroup;
 			children = (
+				0204977026AC6BFA000495F8 /* TextViewBar */,
 				22AE90B426A97676007C82A2 /* Cell */,
 				22AE90AE26A96C93007C82A2 /* ChatVC.swift */,
 				22AE90AF26A96C93007C82A2 /* ChatVC.xib */,
@@ -493,6 +507,7 @@
 				02CDACC026A8716A005CD797 /* MusicVC.xib in Resources */,
 				02CDACC726A8716A005CD797 /* SideMenuCell.xib in Resources */,
 				02CDACC526A8716A005CD797 /* SideMenuVC.xib in Resources */,
+				0204977426AC6C3F000495F8 /* ChatBarView.xib in Resources */,
 				02CDACBD26A8716A005CD797 /* HomeVC.xib in Resources */,
 				228F95DC26A94A82001641FD /* GoogleService-Info.plist in Resources */,
 				02CDAC8326A870CF005CD797 /* Assets.xcassets in Resources */,
@@ -541,7 +556,7 @@
 		};
 		2EAA5EC991C0AEAB622875C2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -640,6 +655,7 @@
 				22AE90B026A96C93007C82A2 /* ChatVC.swift in Sources */,
 				228F95DA26A9149A001641FD /* BaseVC.swift in Sources */,
 				22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */,
+				0204977226AC6C31000495F8 /* ChatBarView.swift in Sources */,
 				228F95E026A951F9001641FD /* LoginVC.swift in Sources */,
 				02CDACC426A8716A005CD797 /* SideMenuVC.swift in Sources */,
 				02CDACC226A8716A005CD797 /* TabBarController.swift in Sources */,

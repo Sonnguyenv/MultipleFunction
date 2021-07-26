@@ -11,10 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatVC" customModule="MultipleFunction" customModuleProvider="target">
             <connections>
-                <outlet property="buttonSend" destination="sN1-rf-kQ5" id="Utd-zo-cAP"/>
                 <outlet property="scrollView" destination="T5F-6N-LCl" id="hn9-f5-WKc"/>
                 <outlet property="tableView" destination="e52-BU-War" id="0tv-Hk-QXL"/>
-                <outlet property="textViewMessage" destination="eqj-2K-tyn" id="s4Q-8m-jEt"/>
+                <outlet property="textView" destination="jzU-7a-U2y" id="LgQ-IG-9Vi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,42 +29,13 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e52-BU-War">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="763"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="783"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </tableView>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-7a-U2y">
-                                    <rect key="frame" x="0.0" y="763" width="414" height="55"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="I4L-S9-Byo">
-                                            <rect key="frame" x="10" y="10" width="404" height="35"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eqj-2K-tyn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="339" height="35"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <color key="textColor" systemColor="labelColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sN1-rf-kQ5">
-                                                    <rect key="frame" x="344" y="0.0" width="60" height="35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="FUZ-AM-ka2"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <state key="normal" title="Send"/>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="35" id="epq-TB-wuz"/>
-                                            </constraints>
-                                        </stackView>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzU-7a-U2y" customClass="ChatBarView" customModule="MultipleFunction" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="783" width="414" height="35"/>
                                     <constraints>
-                                        <constraint firstItem="I4L-S9-Byo" firstAttribute="top" secondItem="jzU-7a-U2y" secondAttribute="top" constant="10" id="Qo3-rd-VSC"/>
-                                        <constraint firstItem="I4L-S9-Byo" firstAttribute="leading" secondItem="jzU-7a-U2y" secondAttribute="leading" constant="10" id="Wu4-Ao-uXJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="I4L-S9-Byo" secondAttribute="trailing" id="iyx-wW-H0U"/>
-                                        <constraint firstAttribute="bottom" secondItem="I4L-S9-Byo" secondAttribute="bottom" constant="10" id="t41-wc-wNd"/>
+                                        <constraint firstAttribute="height" priority="250" constant="35" id="fch-6s-2e7"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -103,14 +73,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

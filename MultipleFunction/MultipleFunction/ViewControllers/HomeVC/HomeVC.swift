@@ -15,9 +15,11 @@ class HomeVC: BaseVC {
 
     @IBOutlet weak var tableView: UITableView!
 
+    let nameDataBase: String = "ChatChanel"
+    
     private let database = Firestore.firestore()
     private var channelReference: CollectionReference {
-      return database.collection("ChatChanel")
+      return database.collection(nameDataBase)
     }
 
     private var users = BehaviorRelay<[UserlModel]>(value: [])
@@ -33,7 +35,7 @@ class HomeVC: BaseVC {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.tabBarController?.tabBar.isHidden = false
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     private func setupChannelListener() {
@@ -44,7 +46,8 @@ class HomeVC: BaseVC {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                 return
             }
-
+            
+//            let userabc = snapshot.documentChanges.flatMap({UserlModel(document: $0.document)})
             snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
             }
@@ -67,8 +70,9 @@ class HomeVC: BaseVC {
             cell.parseData(element)
         }.disposed(by: disposeBag)
 
-        self.tableView.rx.modelSelected(UserlModel.self).subscribe(onNext: {[weak self] item in
+        self.tableView.rx.modelSelected(UserlModel.self).subscribe(onNext: {[weak self] user in
             let vc = ChatVC()
+            vc.user = user
             self?.navigationController?.pushViewController(vc, animated: true)
         }).disposed(by: disposeBag)
     }
@@ -149,7 +153,7 @@ class HomeVC: BaseVC {
         }
 
         let newUser = users.value + [user]
-        users.accept(newUser)
+        users.accept(newUser.sorted())
     }
 
     private func updateChannelInTable(_ user: UserlModel) {

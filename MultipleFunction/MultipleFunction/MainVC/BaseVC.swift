@@ -16,7 +16,7 @@ class BaseVC: UIViewController {
 
     let disposeBag = DisposeBag()
 
-    let user = Auth.auth().currentUser
+    let currentUser = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()

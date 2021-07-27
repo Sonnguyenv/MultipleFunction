@@ -18,11 +18,11 @@ class HomeVC: BaseVC {
     let nameDataBase: String = "ChatChanel"
     
     private let database = Firestore.firestore()
-    private var channelReference: CollectionReference {
+    private var reference: CollectionReference {
       return database.collection(nameDataBase)
     }
 
-    private var users = BehaviorRelay<[UserlModel]>(value: [])
+    private var rooms = BehaviorRelay<[RoomModel]>(value: [])
     private var channelListener: ListenerRegistration?
     private var currentChannelAlertController: UIAlertController?
 
@@ -39,7 +39,7 @@ class HomeVC: BaseVC {
     }
 
     private func setupChannelListener() {
-        channelListener = channelReference.addSnapshotListener { [weak self] querySnapshot, error in
+        self.channelListener = reference.addSnapshotListener { [weak self] querySnapshot, error in
             guard let self = self else { return }
             self.onShowProgress()
             guard let snapshot = querySnapshot else {
@@ -47,7 +47,8 @@ class HomeVC: BaseVC {
                 return
             }
             
-//            let userabc = snapshot.documentChanges.flatMap({UserlModel(document: $0.document)})
+//            let documents = snapshot.documentChanges.compactMap({UserlModel(document: $0.document)})
+//            self.users.accept(documents)
             snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
             }
@@ -65,15 +66,23 @@ class HomeVC: BaseVC {
         self.tableView.tableFooterView = UIView()
         self.tableView.register(UINib(nibName: "UserCell", bundle: nil), forCellReuseIdentifier: "UserCell")
 
-        self.users.bind(to: tableView.rx.items(cellIdentifier: "UserCell",
-                                               cellType: UserCell.self)) { (row, element, cell) in
-            cell.parseData(element)
+        self.rooms.bind(to: tableView.rx.items(cellIdentifier: "UserCell",
+                                               cellType: UserCell.self)) {[weak self] (row, room, cell) in
+            guard let _ = self else {return}
+            cell.parseData(room)
         }.disposed(by: disposeBag)
 
-        self.tableView.rx.modelSelected(UserlModel.self).subscribe(onNext: {[weak self] user in
+        self.tableView.rx.modelSelected(RoomModel.self).subscribe(onNext: {[weak self] room in
+            guard let self = self else {return}
             let vc = ChatVC()
-            vc.user = user
-            self?.navigationController?.pushViewController(vc, animated: true)
+            vc.room = room
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
+        
+        self.tableView.rx.itemDeleted.subscribe(onNext: {[weak self] index in
+            guard let self = self else {return}
+            let user = self.rooms.value[index.row]
+            self.reference.document(user.id ?? "").delete()
         }).disposed(by: disposeBag)
     }
 
@@ -105,28 +114,28 @@ class HomeVC: BaseVC {
         present(alertController, animated: true) {
             alertController.textFields?.first?.becomeFirstResponder()
         }
-        currentChannelAlertController = alertController
+        self.currentChannelAlertController = alertController
     }
 
     @objc private func textFieldDidChange(_ field: UITextField) {
-        guard let alertController = currentChannelAlertController else {
+        guard let alertController = self.currentChannelAlertController else {
             return
         }
         alertController.preferredAction?.isEnabled = field.hasText
     }
 
     private func handleDocumentChange(_ change: DocumentChange) {
-        guard let user = UserlModel(document: change.document) else {
+        guard let user = RoomModel(document: change.document) else {
             return
         }
 
         switch change.type {
         case .added:
-            addChannelToTable(user)
+            self.addChannelToTable(user)
         case .modified:
-            updateChannelInTable(user)
+            self.updateChannelInTable(user)
         case .removed:
-            removeChannelFromTable(user)
+            self.removeChannelFromTable(user)
         }
     }
 
@@ -139,38 +148,38 @@ class HomeVC: BaseVC {
         return
       }
 
-      let channel = UserlModel(name: channelName)
-        channelReference.addDocument(data: channel.toDocument()) { error in
+      let channel = RoomModel(name: channelName)
+        self.reference.addDocument(data: channel.toDocument()) { error in
         if let error = error {
           print("Error saving channel: \(error.localizedDescription)")
         }
       }
     }
 
-    private func addChannelToTable(_ user: UserlModel) {
-        if users.value.contains(user) {
+    private func addChannelToTable(_ user: RoomModel) {
+        if self.rooms.value.contains(user) {
             return
         }
 
-        let newUser = users.value + [user]
-        users.accept(newUser.sorted())
+        let newUser = rooms.value + [user]
+        self.rooms.accept(newUser.sorted())
     }
 
-    private func updateChannelInTable(_ user: UserlModel) {
-        var allUser = users.value
+    private func updateChannelInTable(_ user: RoomModel) {
+        var allUser = self.rooms.value
         guard let index = allUser.firstIndex(where: {$0.id == user.id}) else {
             return
         }
         allUser[index] = user
-        self.users.accept(allUser)
+        self.rooms.accept(allUser)
     }
 
-    private func removeChannelFromTable(_ user: UserlModel) {
-        var allUser = users.value
+    private func removeChannelFromTable(_ user: RoomModel) {
+        var allUser = self.rooms.value
         guard let index = allUser.firstIndex(where: {$0.id == user.id}) else {
             return
         }
         allUser.remove(at: index)
-        self.users.accept(allUser)
+        self.rooms.accept(allUser)
     }
 }

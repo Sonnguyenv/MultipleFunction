@@ -22,7 +22,7 @@ class ChatVC: BaseVC {
 
     private let items = BehaviorRelay<[MessageModel]>(value: [])
     
-    var user: UserlModel = UserlModel()
+    var room: RoomModel = RoomModel()
     
     deinit {
         messageListener?.remove()
@@ -37,6 +37,9 @@ class ChatVC: BaseVC {
     }
     
     private func initViews() {
+        
+        self.navigationItem.title = room.name
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -51,6 +54,27 @@ class ChatVC: BaseVC {
 
         self.items.bind(to: tableView.rx.items(cellIdentifier: "MessageCell", cellType: MessageCell.self)) { (row, element, cell) in
             cell.parseData(element)
+            cell.actionLongPress = {[weak self] message in
+                let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { alert in
+                    self?.reference?.document(message.id ?? "").delete()
+                }
+                
+                let copyAction = UIAlertAction(title: "Copy", style: .default) { alert in
+                    UIPasteboard.general.string = message.content
+                }
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                
+                if message.userId == UIDevice.current.identifierForVendor?.uuidString {
+                    optionMenu.addAction(deleteAction)
+                }
+                optionMenu.addAction(copyAction)
+                optionMenu.addAction(cancelAction)
+                
+                self?.present(optionMenu, animated: true, completion: nil)
+            }
         }.disposed(by: disposeBag)
         
         self.textView.actionSend.subscribe(onNext: { text in
@@ -76,16 +100,16 @@ class ChatVC: BaseVC {
     }
     
     private func listenToMessages() {
-        guard let id = user.id else {
+        guard let id = room.id else {
             navigationController?.popViewController(animated: true)
             return
         }
+        self.onShowProgress()
+        self.reference = database.collection("ChatChanel/\(id)/thread")
         
-        reference = database.collection("ChatChanel/\(id)/thread")
-        
-        messageListener = reference?.addSnapshotListener { [weak self] querySnapshot, error in
+        self.messageListener = reference?.addSnapshotListener { [weak self] querySnapshot, error in
             guard let self = self else { return }
-            self.onShowProgress()
+            
             guard let snapshot = querySnapshot else {
                 print("Error listening for channel updates: \(error?.localizedDescription ?? "No error")")
                 return
@@ -105,16 +129,16 @@ class ChatVC: BaseVC {
         
         switch change.type {
         case .added:
-            insertNewMessage(message)
+            self.insertNewMessage(message)
         case .modified:
-            updateMessage(message)
+            self.updateMessage(message)
         case .removed:
-            break
+            self.removeMessage(message)
         }
     }
     
     private func insertNewMessage(_ message: MessageModel) {
-        let values = items.value
+        let values = self.items.value
         if values.contains(message) {
             return
         }
@@ -125,19 +149,26 @@ class ChatVC: BaseVC {
     }
     
     private func updateMessage(_ message: MessageModel) {
-        var values = items.value
-
-        items.accept(values + [message])
+        var values = self.items.value
 
         guard let index = values.firstIndex(where: {$0.id == message.id}) else {
             return
         }
         values[index] = message
-        items.accept(values)
+        self.items.accept(values)
+    }
+    
+    private func removeMessage(_ message: MessageModel) {
+        var values = self.items.value
+        guard let index = values.firstIndex(where: {$0.id == message.id}) else {
+            return
+        }
+        values.remove(at: index)
+        self.items.accept(values)
     }
     
     private func save(_ message: MessageModel) {
-        reference?.addDocument(data: message.toDocument()) { [weak self] error in
+        self.reference?.addDocument(data: message.toDocument()) { [weak self] error in
             guard let _ = self else { return }
             if let error = error {
                 print("Error sending message: \(error.localizedDescription)")

@@ -41,7 +41,7 @@
 		22AE90B726A976B4007C82A2 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE90B526A976B4007C82A2 /* MessageCell.swift */; };
 		22AE90B826A976B4007C82A2 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22AE90B626A976B4007C82A2 /* MessageCell.xib */; };
 		22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090026AA797F004485EF /* UITextFieldExtension.swift */; };
-		22D4090626AAAFEC004485EF /* UserlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090526AAAFEC004485EF /* UserlModel.swift */; };
+		22D4090626AAAFEC004485EF /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090526AAAFEC004485EF /* RoomModel.swift */; };
 		22D4090A26AAB61B004485EF /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090826AAB61B004485EF /* UserCell.swift */; };
 		22D4090B26AAB61B004485EF /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22D4090926AAB61B004485EF /* UserCell.xib */; };
 		22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D4090C26AAC7AB004485EF /* MessageModel.swift */; };
@@ -110,7 +110,7 @@
 		22AE90B526A976B4007C82A2 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		22AE90B626A976B4007C82A2 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		22D4090026AA797F004485EF /* UITextFieldExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
-		22D4090526AAAFEC004485EF /* UserlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserlModel.swift; sourceTree = "<group>"; };
+		22D4090526AAAFEC004485EF /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		22D4090826AAB61B004485EF /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		22D4090926AAB61B004485EF /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		22D4090C26AAC7AB004485EF /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 				22D4090726AAB609004485EF /* Cell */,
 				02CDACAB26A8716A005CD797 /* HomeVC.swift */,
 				02CDACAC26A8716A005CD797 /* HomeVC.xib */,
-				22D4090526AAAFEC004485EF /* UserlModel.swift */,
+				22D4090526AAAFEC004485EF /* RoomModel.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -647,7 +647,7 @@
 				22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */,
 				22D4090A26AAB61B004485EF /* UserCell.swift in Sources */,
 				02CDACC326A8716A005CD797 /* ArrayExtension.swift in Sources */,
-				22D4090626AAAFEC004485EF /* UserlModel.swift in Sources */,
+				22D4090626AAAFEC004485EF /* RoomModel.swift in Sources */,
 				02CDACC826A8716A005CD797 /* SideMenuCell.swift in Sources */,
 				228F95E426A957F3001641FD /* Global.swift in Sources */,
 				02CDACD026A881F4005CD797 /* EventHub.swift in Sources */,

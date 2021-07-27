@@ -16,7 +16,7 @@ class UserCell: UITableViewCell {
         self.selectionStyle = .none
     }
 
-    func parseData(_ user: UserlModel) {
-        self.labelName.text = user.name
+    func parseData(_ room: RoomModel) {
+        self.labelName.text = room.name
     }
 }

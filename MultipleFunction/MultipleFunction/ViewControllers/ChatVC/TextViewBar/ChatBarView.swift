@@ -100,6 +100,7 @@ extension ChatBarView: UITextViewDelegate {
     }
 
     func textViewDidChange(_ textView: UITextView) {
+        
         let fixedWidth = textView.frame.size.width
         textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -108,6 +109,6 @@ extension ChatBarView: UITextViewDelegate {
         let estimateHeight = newFrame.size.height
         let maxHeight = NUMBER_OF_ROWS * textView.font!.lineHeight
         let calculatedHeight = newFrame.size.height > maxHeight ? maxHeight : estimateHeight
-        csHeightTextView.constant = calculatedHeight
+        self.csHeightTextView.constant = calculatedHeight
     }
 }

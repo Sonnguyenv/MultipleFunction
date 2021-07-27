@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseFirestore
 
-struct UserlModel {
+struct RoomModel {
     var id: String?
     var name: String?
 
@@ -43,12 +43,12 @@ struct UserlModel {
 }
 
 // MARK: - Comparable
-extension UserlModel: Comparable {
-  static func == (lhs: UserlModel, rhs: UserlModel) -> Bool {
+extension RoomModel: Comparable {
+  static func == (lhs: RoomModel, rhs: RoomModel) -> Bool {
     return lhs.id == rhs.id
   }
 
-  static func < (lhs: UserlModel, rhs: UserlModel) -> Bool {
+  static func < (lhs: RoomModel, rhs: RoomModel) -> Bool {
     return lhs.name ?? "" < rhs.name ?? ""
   }
 }

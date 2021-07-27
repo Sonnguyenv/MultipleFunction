@@ -19,7 +19,9 @@ class MessageCell: UITableViewCell {
     @IBOutlet weak var labelNamePeople: UILabel!
     @IBOutlet weak var labelMessagePeople: UILabel!
     
-
+    var actionLongPress: ((MessageModel)-> Void)?
+    private var message: MessageModel?
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -30,9 +32,17 @@ class MessageCell: UITableViewCell {
         self.viewBoundPeople.backgroundColor = .gray
         self.viewBoundPeople.layer.cornerRadius = 20
         self.labelMessagePeople.textColor = .white
+        
+        self.addLongPress()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
 
     func parseData(_ model: MessageModel) {
+        self.message = model
         if model.userId == UIDevice.current.identifierForVendor?.uuidString {
             self.viewMe.isHidden = false
             self.viewPeople.isHidden = true
@@ -46,5 +56,23 @@ class MessageCell: UITableViewCell {
             self.labelNamePeople.text = model.userName
             self.labelMessagePeople.text = model.content
         }
+    }
+    
+    func addLongPress() {
+        let longPressedGesture : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self
+        longPressedGesture.delaysTouchesBegan = true
+        self.addGestureRecognizer(longPressedGesture)
+        
+    }
+    
+    @objc func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer) {
+        if (gestureRecognizer.state != .began) {
+            return
+        }
+        
+        guard let message = message else {return}
+        self.actionLongPress?(message)
     }
 }

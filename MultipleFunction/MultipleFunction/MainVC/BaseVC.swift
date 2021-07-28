@@ -58,5 +58,15 @@ class BaseVC: UIViewController {
         self.child.view.removeFromSuperview()
         self.child.removeFromParent()
     }
+    
+    func addSideMenu() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .done,
+                                                                target: self, action: #selector(showSideMenu))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
+    @objc func showSideMenu() {
+        EventHub.post(SideEvent())
+    }
 }
 

@@ -32,8 +32,6 @@ class MessageCell: UITableViewCell {
         self.viewBoundPeople.backgroundColor = .gray
         self.viewBoundPeople.layer.cornerRadius = 20
         self.labelMessagePeople.textColor = .white
-        
-        self.addLongPress()
     }
     
     override func prepareForReuse() {
@@ -49,22 +47,23 @@ class MessageCell: UITableViewCell {
             
             self.labelNameMe.text = model.userName
             self.labelMessageMe.text = model.content
+            self.addLongPress(viewBoundMe)
         } else {
             self.viewMe.isHidden = true
             self.viewPeople.isHidden = false
             
             self.labelNamePeople.text = model.userName
             self.labelMessagePeople.text = model.content
+            self.addLongPress(viewBoundPeople)
         }
     }
     
-    func addLongPress() {
+    func addLongPress(_ view: UIView)  {
         let longPressedGesture : UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
         longPressedGesture.minimumPressDuration = 0.5
         longPressedGesture.delegate = self
         longPressedGesture.delaysTouchesBegan = true
-        self.addGestureRecognizer(longPressedGesture)
-        
+        view.addGestureRecognizer(longPressedGesture)
     }
     
     @objc func handleLongPress(gestureRecognizer : UILongPressGestureRecognizer) {

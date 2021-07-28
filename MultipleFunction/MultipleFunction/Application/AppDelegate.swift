@@ -33,7 +33,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.overrideUserInterfaceStyle = .light
         }
         if let _ = Auth.auth().currentUser {
-            window.rootViewController = MainVC()
+            let vc = MainVC()
+            let navi = UINavigationController(rootViewController: vc)
+            window.rootViewController = navi
         } else {
             window.rootViewController = LoginVC()
         }

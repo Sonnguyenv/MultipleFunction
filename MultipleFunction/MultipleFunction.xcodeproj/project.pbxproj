@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		0204977226AC6C31000495F8 /* ChatBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0204977126AC6C31000495F8 /* ChatBarView.swift */; };
 		0204977426AC6C3F000495F8 /* ChatBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0204977326AC6C3F000495F8 /* ChatBarView.xib */; };
+		0251C2FB26B0542C0072D2DF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C2F926B0542C0072D2DF /* ProfileVC.swift */; };
+		0251C2FC26B0542C0072D2DF /* ProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0251C2FA26B0542C0072D2DF /* ProfileVC.xib */; };
+		0251C30126B05A2F0072D2DF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C2FF26B05A2F0072D2DF /* SearchVC.swift */; };
+		0251C30226B05A2F0072D2DF /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0251C30026B05A2F0072D2DF /* SearchVC.xib */; };
+		0251C30426B137F60072D2DF /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30326B137F60072D2DF /* UIScrollViewExtension.swift */; };
+		0251C30626B138520072D2DF /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30526B138520072D2DF /* UIViewControllerExtension.swift */; };
+		0251C30826B15DB90072D2DF /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30726B15DB90072D2DF /* UIImageExtension.swift */; };
+		0251C30B26B168600072D2DF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30926B168600072D2DF /* ImageCell.swift */; };
+		0251C30C26B168600072D2DF /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0251C30A26B168600072D2DF /* ImageCell.xib */; };
 		02CDAC7A26A870CE005CD797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7926A870CE005CD797 /* AppDelegate.swift */; };
 		02CDAC7E26A870CE005CD797 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7D26A870CE005CD797 /* ViewController.swift */; };
 		02CDAC8126A870CE005CD797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CDAC7F26A870CE005CD797 /* Main.storyboard */; };
@@ -18,10 +27,8 @@
 		02CDAC9C26A870CF005CD797 /* MultipleFunctionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC9B26A870CF005CD797 /* MultipleFunctionUITests.swift */; };
 		02CDACBC26A8716A005CD797 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACAB26A8716A005CD797 /* HomeVC.swift */; };
 		02CDACBD26A8716A005CD797 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CDACAC26A8716A005CD797 /* HomeVC.xib */; };
-		02CDACBE26A8716A005CD797 /* FilmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACAD26A8716A005CD797 /* FilmVC.swift */; };
-		02CDACBF26A8716A005CD797 /* FilmVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CDACAE26A8716A005CD797 /* FilmVC.xib */; };
-		02CDACC026A8716A005CD797 /* MusicVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CDACAF26A8716A005CD797 /* MusicVC.xib */; };
-		02CDACC126A8716A005CD797 /* MusicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACB026A8716A005CD797 /* MusicVC.swift */; };
+		02CDACBE26A8716A005CD797 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACAD26A8716A005CD797 /* FavoriteVC.swift */; };
+		02CDACBF26A8716A005CD797 /* FavoriteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02CDACAE26A8716A005CD797 /* FavoriteVC.xib */; };
 		02CDACC226A8716A005CD797 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACB226A8716A005CD797 /* TabBarController.swift */; };
 		02CDACC326A8716A005CD797 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACB426A8716A005CD797 /* ArrayExtension.swift */; };
 		02CDACC426A8716A005CD797 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDACB626A8716A005CD797 /* SideMenuVC.swift */; };
@@ -71,6 +78,15 @@
 /* Begin PBXFileReference section */
 		0204977126AC6C31000495F8 /* ChatBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBarView.swift; sourceTree = "<group>"; };
 		0204977326AC6C3F000495F8 /* ChatBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatBarView.xib; sourceTree = "<group>"; };
+		0251C2F926B0542C0072D2DF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		0251C2FA26B0542C0072D2DF /* ProfileVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileVC.xib; sourceTree = "<group>"; };
+		0251C2FF26B05A2F0072D2DF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		0251C30026B05A2F0072D2DF /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
+		0251C30326B137F60072D2DF /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
+		0251C30526B138520072D2DF /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		0251C30726B15DB90072D2DF /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		0251C30926B168600072D2DF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		0251C30A26B168600072D2DF /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		02CDAC7626A870CE005CD797 /* MultipleFunction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleFunction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CDAC7926A870CE005CD797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02CDAC7D26A870CE005CD797 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,10 +102,8 @@
 		02CDAC9D26A870CF005CD797 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02CDACAB26A8716A005CD797 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		02CDACAC26A8716A005CD797 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
-		02CDACAD26A8716A005CD797 /* FilmVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmVC.swift; sourceTree = "<group>"; };
-		02CDACAE26A8716A005CD797 /* FilmVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilmVC.xib; sourceTree = "<group>"; };
-		02CDACAF26A8716A005CD797 /* MusicVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicVC.xib; sourceTree = "<group>"; };
-		02CDACB026A8716A005CD797 /* MusicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVC.swift; sourceTree = "<group>"; };
+		02CDACAD26A8716A005CD797 /* FavoriteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		02CDACAE26A8716A005CD797 /* FavoriteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteVC.xib; sourceTree = "<group>"; };
 		02CDACB226A8716A005CD797 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		02CDACB426A8716A005CD797 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		02CDACB626A8716A005CD797 /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
@@ -160,6 +174,33 @@
 				0204977326AC6C3F000495F8 /* ChatBarView.xib */,
 			);
 			path = TextViewBar;
+			sourceTree = "<group>";
+		};
+		0251C2F826B054110072D2DF /* User */ = {
+			isa = PBXGroup;
+			children = (
+				0251C2F926B0542C0072D2DF /* ProfileVC.swift */,
+				0251C2FA26B0542C0072D2DF /* ProfileVC.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		0251C2FD26B059FF0072D2DF /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				02CDACAD26A8716A005CD797 /* FavoriteVC.swift */,
+				02CDACAE26A8716A005CD797 /* FavoriteVC.xib */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		0251C2FE26B05A1C0072D2DF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0251C2FF26B05A2F0072D2DF /* SearchVC.swift */,
+				0251C30026B05A2F0072D2DF /* SearchVC.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		02CDAC6D26A870CE005CD797 = {
@@ -236,12 +277,11 @@
 		02CDACAA26A8716A005CD797 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				22D4090426AAAFCA004485EF /* HomeVC */,
-				22AE90B326A97669007C82A2 /* ChatVC */,
-				02CDACAD26A8716A005CD797 /* FilmVC.swift */,
-				02CDACAE26A8716A005CD797 /* FilmVC.xib */,
-				02CDACB026A8716A005CD797 /* MusicVC.swift */,
-				02CDACAF26A8716A005CD797 /* MusicVC.xib */,
+				0251C2FE26B05A1C0072D2DF /* Search */,
+				0251C2FD26B059FF0072D2DF /* Favorite */,
+				0251C2F826B054110072D2DF /* User */,
+				22D4090426AAAFCA004485EF /* Home */,
+				22AE90B326A97669007C82A2 /* Chat */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -259,6 +299,9 @@
 			children = (
 				22D4090026AA797F004485EF /* UITextFieldExtension.swift */,
 				02CDACB426A8716A005CD797 /* ArrayExtension.swift */,
+				0251C30326B137F60072D2DF /* UIScrollViewExtension.swift */,
+				0251C30526B138520072D2DF /* UIViewControllerExtension.swift */,
+				0251C30726B15DB90072D2DF /* UIImageExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -317,7 +360,7 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		22AE90B326A97669007C82A2 /* ChatVC */ = {
+		22AE90B326A97669007C82A2 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
 				0204977026AC6BFA000495F8 /* TextViewBar */,
@@ -326,7 +369,7 @@
 				22AE90AF26A96C93007C82A2 /* ChatVC.xib */,
 				22D4090C26AAC7AB004485EF /* MessageModel.swift */,
 			);
-			path = ChatVC;
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		22AE90B426A97676007C82A2 /* Cell */ = {
@@ -334,11 +377,13 @@
 			children = (
 				22AE90B526A976B4007C82A2 /* MessageCell.swift */,
 				22AE90B626A976B4007C82A2 /* MessageCell.xib */,
+				0251C30926B168600072D2DF /* ImageCell.swift */,
+				0251C30A26B168600072D2DF /* ImageCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		22D4090426AAAFCA004485EF /* HomeVC */ = {
+		22D4090426AAAFCA004485EF /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				22D4090726AAB609004485EF /* Cell */,
@@ -346,7 +391,7 @@
 				02CDACAC26A8716A005CD797 /* HomeVC.xib */,
 				22D4090526AAAFEC004485EF /* RoomModel.swift */,
 			);
-			path = HomeVC;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		22D4090726AAB609004485EF /* Cell */ = {
@@ -497,18 +542,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0251C30C26B168600072D2DF /* ImageCell.xib in Resources */,
 				02CDACCC26A87B5A005CD797 /* MainVC.xib in Resources */,
 				228F95E126A951F9001641FD /* LoginVC.xib in Resources */,
-				02CDACBF26A8716A005CD797 /* FilmVC.xib in Resources */,
+				02CDACBF26A8716A005CD797 /* FavoriteVC.xib in Resources */,
 				22AE90B826A976B4007C82A2 /* MessageCell.xib in Resources */,
 				02CDAC8626A870CF005CD797 /* LaunchScreen.storyboard in Resources */,
 				22AE90B126A96C93007C82A2 /* ChatVC.xib in Resources */,
 				22D4090B26AAB61B004485EF /* UserCell.xib in Resources */,
-				02CDACC026A8716A005CD797 /* MusicVC.xib in Resources */,
+				0251C2FC26B0542C0072D2DF /* ProfileVC.xib in Resources */,
 				02CDACC726A8716A005CD797 /* SideMenuCell.xib in Resources */,
 				02CDACC526A8716A005CD797 /* SideMenuVC.xib in Resources */,
 				0204977426AC6C3F000495F8 /* ChatBarView.xib in Resources */,
 				02CDACBD26A8716A005CD797 /* HomeVC.xib in Resources */,
+				0251C30226B05A2F0072D2DF /* SearchVC.xib in Resources */,
 				228F95DC26A94A82001641FD /* GoogleService-Info.plist in Resources */,
 				02CDAC8326A870CF005CD797 /* Assets.xcassets in Resources */,
 				02CDAC8126A870CE005CD797 /* Main.storyboard in Resources */,
@@ -640,20 +687,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				02CDAC7E26A870CE005CD797 /* ViewController.swift in Sources */,
+				0251C2FB26B0542C0072D2DF /* ProfileVC.swift in Sources */,
+				0251C30626B138520072D2DF /* UIViewControllerExtension.swift in Sources */,
 				22AE90B726A976B4007C82A2 /* MessageCell.swift in Sources */,
 				02CDACCB26A87B5A005CD797 /* MainVC.swift in Sources */,
 				02CDACBC26A8716A005CD797 /* HomeVC.swift in Sources */,
-				02CDACC126A8716A005CD797 /* MusicVC.swift in Sources */,
 				22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */,
 				22D4090A26AAB61B004485EF /* UserCell.swift in Sources */,
 				02CDACC326A8716A005CD797 /* ArrayExtension.swift in Sources */,
+				0251C30826B15DB90072D2DF /* UIImageExtension.swift in Sources */,
 				22D4090626AAAFEC004485EF /* RoomModel.swift in Sources */,
+				0251C30B26B168600072D2DF /* ImageCell.swift in Sources */,
 				02CDACC826A8716A005CD797 /* SideMenuCell.swift in Sources */,
 				228F95E426A957F3001641FD /* Global.swift in Sources */,
+				0251C30426B137F60072D2DF /* UIScrollViewExtension.swift in Sources */,
 				02CDACD026A881F4005CD797 /* EventHub.swift in Sources */,
-				02CDACBE26A8716A005CD797 /* FilmVC.swift in Sources */,
+				02CDACBE26A8716A005CD797 /* FavoriteVC.swift in Sources */,
 				22AE90B026A96C93007C82A2 /* ChatVC.swift in Sources */,
 				228F95DA26A9149A001641FD /* BaseVC.swift in Sources */,
+				0251C30126B05A2F0072D2DF /* SearchVC.swift in Sources */,
 				22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */,
 				0204977226AC6C31000495F8 /* ChatBarView.swift in Sources */,
 				228F95E026A951F9001641FD /* LoginVC.swift in Sources */,

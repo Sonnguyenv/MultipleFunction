@@ -33,6 +33,11 @@ class MainVC: BaseVC {
         self.setupSideMenu()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func setupSideMenu() {
         self.sideMenuShadowView = UIView(frame: self.view.frame)
         self.sideMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -131,15 +136,17 @@ extension MainVC: SideMenuDelegate {
     func selectItem(_ type: TypeSideMenu) {
         switch type {
         case .home:
-            self.tabbar.selectedIndex = 0
+            print("setting")
         case .user:
-            print("user")
+            let vc = ProfileVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         case.setting:
             print("setting")
         case .logout:
             self.logout()
         }
 
+        
         // Collapse side menu with animation
         DispatchQueue.main.async {
             self.sideMenuState(expanded: false)

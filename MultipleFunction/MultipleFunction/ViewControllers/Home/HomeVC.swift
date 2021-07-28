@@ -47,8 +47,6 @@ class HomeVC: BaseVC {
                 return
             }
             
-//            let documents = snapshot.documentChanges.compactMap({UserlModel(document: $0.document)})
-//            self.users.accept(documents)
             snapshot.documentChanges.forEach { change in
                 self.handleDocumentChange(change)
             }
@@ -57,10 +55,7 @@ class HomeVC: BaseVC {
     }
 
     private func initViews() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .done,
-                                                                target: self, action: #selector(showSideMenu))
-        self.navigationItem.leftBarButtonItem?.tintColor = .black
-
+        self.addSideMenu()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self,
                                                                  action: #selector(addUser))
         self.tableView.tableFooterView = UIView()
@@ -84,10 +79,6 @@ class HomeVC: BaseVC {
             let user = self.rooms.value[index.row]
             self.reference.document(user.id ?? "").delete()
         }).disposed(by: disposeBag)
-    }
-
-    @objc private func showSideMenu() {
-        EventHub.post(SideEvent())
     }
 
     @objc private func addUser() {

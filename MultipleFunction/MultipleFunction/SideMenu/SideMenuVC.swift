@@ -31,7 +31,7 @@ enum TypeSideMenu {
         case .home:
             return "Home"
         case .user:
-            return "User"
+            return "Profile"
         case .setting:
             return "Setting"
         case .logout:

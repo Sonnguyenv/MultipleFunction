@@ -19,7 +19,7 @@ enum TypeTabbar {
         case .heart:
             return "Favorites"
         case .search:
-            return "Film"
+            return "Search"
         }
     }
     
@@ -38,7 +38,7 @@ enum TypeTabbar {
 class TabBarController: UITabBarController {
 
     private let typeTabbars: [TypeTabbar] = [.home, .heart, .search]
-    private let listVC: [UIViewController] = [HomeVC(), MusicVC(), FilmVC()]
+    private let listVC: [UIViewController] = [HomeVC(), FavoriteVC(), SearchVC()]
     private var index: Int = 0
 
     override func viewDidLoad() {

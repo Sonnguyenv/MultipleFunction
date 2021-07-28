@@ -9,7 +9,11 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
+enum ChatBarViewEvent {
+    case send(String)
+    case camera
+    case handleScroll
+}
 
 class ChatBarView: UIView {
 
@@ -18,6 +22,7 @@ class ChatBarView: UIView {
     @IBOutlet weak var textInputView: UITextView!
     @IBOutlet weak var buttonSend: UIButton!
     @IBOutlet weak var csHeightTextView: NSLayoutConstraint!
+    @IBOutlet weak var buttonCamera: UIButton!
     
     let disposeBag = DisposeBag()
     
@@ -25,14 +30,20 @@ class ChatBarView: UIView {
     let MAX_CHARACTERS: Int = 3000
     
     private var content: String = ""
-    private let sendPublishSubject = PublishSubject<String>()
+    private let eventPublishSubject = PublishSubject<ChatBarViewEvent>()
+//    private let sendActionCamera = PublishSubject<Void?>()
+//    private let sendScroll = PublishSubject<Void?>()
     
-    var actionSend: Observable<String> {
-        return sendPublishSubject.asObserver()
+//    var handleScroll: Observable<Void?> {
+//        return sendScroll.asObservable()
+//    }
+    
+    var actionEvent: Observable<ChatBarViewEvent> {
+        return eventPublishSubject.asObserver()
     }
       
     deinit {
-        self.sendPublishSubject.onCompleted()
+        self.eventPublishSubject.onCompleted()
     }
     
     override init(frame: CGRect) {
@@ -81,8 +92,13 @@ class ChatBarView: UIView {
 
         self.buttonSend.rx.tap
             .subscribe(onNext: {
-                self.sendPublishSubject.onNext(self.content)
+                self.eventPublishSubject.onNext(.send(self.content))
                 self.reset()
+            }).disposed(by: disposeBag)
+        
+        self.buttonCamera.rx.tap
+            .subscribe(onNext: {
+                self.eventPublishSubject.onNext(.camera)
             }).disposed(by: disposeBag)
     }
     
@@ -109,6 +125,9 @@ extension ChatBarView: UITextViewDelegate {
         let estimateHeight = newFrame.size.height
         let maxHeight = NUMBER_OF_ROWS * textView.font!.lineHeight
         let calculatedHeight = newFrame.size.height > maxHeight ? maxHeight : estimateHeight
+        if calculatedHeight > self.csHeightTextView.constant {
+            self.eventPublishSubject.onNext(.handleScroll)
+        }
         self.csHeightTextView.constant = calculatedHeight
     }
 }

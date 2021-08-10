@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if #available(iOS 13.0, *) {
             window.overrideUserInterfaceStyle = .light
         }
-        if let _ = Auth.auth().currentUser {
+        if let _ = Auth.auth().currentUser, !Global.shared.displayName.isEmpty {
             let vc = MainVC()
             let navi = UINavigationController(rootViewController: vc)
             window.rootViewController = navi

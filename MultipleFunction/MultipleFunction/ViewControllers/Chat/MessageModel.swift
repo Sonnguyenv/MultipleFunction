@@ -44,17 +44,25 @@ struct MessageModel {
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
         
+        self.id = document.documentID
+        
         if let string = data["type"] as? String {
             self.typeMessage = TypeMessage(rawValue: string)
         }
         
-        if let createdDate = data["created"] as? Timestamp, let userName = data["userName"] as? String,
-            let content = data["content"] as? String, let userId = data["userId"] as? String {
-            
-            self.id = document.documentID
-            self.userName = userName
+        if let createdDate = data["created"] as? Timestamp {
             self.createdDate = createdDate.dateValue()
+        }
+        
+        if let userName = data["userName"] as? String {
+            self.userName = userName
+        }
+        
+        if let content = data["content"] as? String {
             self.content = content
+        }
+        
+        if let userId = data["userId"] as? String {
             self.userId = userId
         }
         
@@ -89,11 +97,11 @@ struct MessageModel {
 
 // MARK: - Comparable
 extension MessageModel: Comparable {
-  static func == (lhs: MessageModel, rhs: MessageModel) -> Bool {
-    return lhs.id == rhs.id
-  }
-
-  static func < (lhs: MessageModel, rhs: MessageModel) -> Bool {
-    return lhs.createdDate ?? Date() < rhs.createdDate ?? Date()
-  }
+    static func == (lhs: MessageModel, rhs: MessageModel) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    static func < (lhs: MessageModel, rhs: MessageModel) -> Bool {
+        return lhs.createdDate ?? Date() < rhs.createdDate ?? Date()
+    }
 }

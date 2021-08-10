@@ -8,9 +8,15 @@
 import UIKit
 import RxSwift
 import RxCocoa
+//import RxDataSources
 import FirebaseFirestore
 import FirebaseStorage
 import Photos
+
+enum CellType {
+    case message(MessageModel)
+    case image(MessageModel)
+}
 
 class ChatVC: BaseVC {
 
@@ -54,25 +60,19 @@ class ChatVC: BaseVC {
 
         self.tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
         self.tableView.register(UINib(nibName: "ImageCell", bundle: nil), forCellReuseIdentifier: "ImageCell")
-
-        self.items.bind(to: tableView.rx.items(cellIdentifier: "MessageCell", cellType: MessageCell.self)) { (row, element, cell) in
-            cell.parseData(element)
-            cell.actionLongPress = {[weak self] message in
-                guard let self = self else { return }
-                let isEnableDelete = message.userId == UIDevice.current.identifierForVendor?.uuidString
-                self.showActionSheet(isEnableDelete: isEnableDelete, handlerDelete: {
-                    self.reference?.document(message.id ?? "").delete()
-                }, handlerCopy: {
-                    UIPasteboard.general.string = message.content
-                })
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        items.bind(to: tableView.rx.items) { table, index, element in
+            switch element.typeMessage {
+            case .context:
+                return self.makeCellMessage(with: element, from: table)
+            case .photo:
+                return self.makeCellImage(with: element, from: table)
+            default:
+                return UITableViewCell()
             }
         }.disposed(by: disposeBag)
-        
-        
-        self.items.asObservable().bind(to: tableView.rx.items(cellIdentifier: "")) {(tableView, row, element) in
-            
-        }.disposed(by: disposeBag)
-           
         
         self.textView.actionEvent.subscribe(onNext: {[weak self] event in
             guard let self = self else { return }
@@ -91,8 +91,42 @@ class ChatVC: BaseVC {
                 let height = self.tableView.contentSize.height
                 self.tableView.setContentOffset(CGPoint(x: 0, y: height), animated: false)
             }
-            
         }).disposed(by: disposeBag)
+    }
+    
+    private func makeCellMessage(with element: MessageModel, from table: UITableView) -> UITableViewCell {
+        guard let cell = table.dequeueReusableCell(withIdentifier: "MessageCell") as? MessageCell else {
+            return UITableViewCell()
+        }
+        
+        cell.parseData(element)
+        cell.actionLongPress = {[weak self] message in
+            guard let self = self else { return }
+            let isEnableDelete = message.userId == UIDevice.current.identifierForVendor?.uuidString
+            self.showActionSheet(isEnableDelete: isEnableDelete, handlerDelete: {
+                self.reference?.document(message.id ?? "").delete()
+            }, handlerCopy: {
+                UIPasteboard.general.string = message.content
+            })
+        }
+        return cell
+    }
+
+    private func makeCellImage(with element: MessageModel, from table: UITableView) -> UITableViewCell {
+        guard let cell = table.dequeueReusableCell(withIdentifier: "ImageCell") as? ImageCell else {
+            return UITableViewCell()
+        }
+        cell.parseData(element)
+//        cell.actionLongPress = {[weak self] message in
+//            guard let self = self else { return }
+//            let isEnableDelete = message.userId == UIDevice.current.identifierForVendor?.uuidString
+//            self.showActionSheet(isEnableDelete: isEnableDelete, handlerDelete: {
+//                self.reference?.document(message.id ?? "").delete()
+//            }, handlerCopy: {
+//                UIPasteboard.general.string = message.content
+//            })
+//        }
+        return cell
     }
     
     private func showCameraOrLibrary(_ isCamera: Bool) {

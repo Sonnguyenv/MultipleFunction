@@ -9,13 +9,11 @@ import UIKit
 
 extension UIImage {
     var scaledToSafeUploadSize: UIImage? {
-        let maxImageSideLength: CGFloat = 480
+        let maxWidth: CGFloat = UIScreen.main.bounds.width - 100
         
         let largerSide: CGFloat = max(size.width, size.height)
-        let ratioScale: CGFloat = largerSide > maxImageSideLength ? largerSide / maxImageSideLength : 1
-        let newImageSize = CGSize(
-            width: size.width / ratioScale,
-            height: size.height / ratioScale)
+        let ratioScale: CGFloat = largerSide > maxWidth ? maxWidth / largerSide : 1
+        let newImageSize = CGSize(width: size.width*ratioScale, height: size.height*ratioScale)
         
         return image(scaledTo: newImageSize)
     }

@@ -34,11 +34,18 @@ class LoginVC: BaseVC {
         let actionLogin = buttonLogin.rx.tap.single()
 
         Observable.merge(actionLogin, editingDidEndOnExit)
-            .subscribe(onNext: {
-                if Global.shared.displayName.isEmpty {
-                    return
+            .do(onNext: {
+                if !Global.shared.displayName.isEmpty {
+                    self.onShowProgress()
                 }
-                Auth.auth().signInAnonymously()
+            })
+            .subscribe(onNext: {
+                if !Global.shared.displayName.isEmpty {
+                    Auth.auth().signInAnonymously()
+                }
+            }, onCompleted: {
+                self.onDismissProgress()
             }).disposed(by: disposeBag)
+        
     }
 }

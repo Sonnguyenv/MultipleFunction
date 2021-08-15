@@ -8,13 +8,18 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if let url = Realm.Configuration.defaultConfiguration.fileURL {
+            print("RealmDatabase URL === \(url)")
+        }
+        
         FirebaseApp.configure()
         self.initViews()
 
@@ -53,6 +58,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIView.transition(with: window, duration: 0.5, options: [.curveEaseIn], animations: nil, completion: nil)
 
     }
-
 }
 

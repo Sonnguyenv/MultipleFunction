@@ -18,18 +18,13 @@ class ImageCell: UITableViewCell {
     
     @IBOutlet weak var imageMe: UIImageView!
     @IBOutlet weak var imagePeople: UIImageView!
-    @IBOutlet weak var csWidth: NSLayoutConstraint!
-    @IBOutlet weak var csHeight: NSLayoutConstraint!
-    
-    
-    private var heightImage: CGFloat = 200.0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         
-        self.imageMe.layer.cornerRadius = 20
-        self.imagePeople.layer.cornerRadius = 20
+        self.imageMe.layer.cornerRadius = 10
+        self.imagePeople.layer.cornerRadius = 10
     }
     
     override func layoutSubviews() {
@@ -39,14 +34,12 @@ class ImageCell: UITableViewCell {
     func parseData(_ message: MessageModel) {
         if message.userId == UIDevice.current.identifierForVendor?.uuidString {
             self.labelNameMe.text = message.userName
-            self.imageMe.image = message.image
-            self.csWidth.constant = message.image?.size.width ?? 200.0
-            self.csHeight.constant = message.image?.size.height ?? 200.0
+            self.imageMe.image = message.image?.scaledToSafeUploadSize
             self.viewBoundMe.isHidden = false
             self.viewBoundPeople.isHidden = true
         } else {
             self.labelNamePeople.text = message.userName
-            self.imagePeople.image = message.image
+            self.imagePeople.image = message.image?.scaledToSafeUploadSize
             self.viewBoundMe.isHidden = true
             self.viewBoundPeople.isHidden = false
         }

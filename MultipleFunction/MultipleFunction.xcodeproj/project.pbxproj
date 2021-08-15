@@ -18,6 +18,12 @@
 		0251C30826B15DB90072D2DF /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30726B15DB90072D2DF /* UIImageExtension.swift */; };
 		0251C30B26B168600072D2DF /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251C30926B168600072D2DF /* ImageCell.swift */; };
 		0251C30C26B168600072D2DF /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0251C30A26B168600072D2DF /* ImageCell.xib */; };
+		029705FE26C8C8A900A57E21 /* PresenterMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029705FD26C8C8A900A57E21 /* PresenterMessage.swift */; };
+		0297060126C8C8F200A57E21 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297060026C8C8F200A57E21 /* BaseView.swift */; };
+		0297060326C8C97D00A57E21 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297060226C8C97D00A57E21 /* Presenter.swift */; };
+		0298426A26C3DBA6003155E6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0298426926C3DBA6003155E6 /* Reachability.swift */; };
+		02B8849726C2898400CFDD8A /* PresenterRoomFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8849626C2898400CFDD8A /* PresenterRoomFireBase.swift */; };
+		02B8849B26C376E100CFDD8A /* RealmDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B8849A26C376E100CFDD8A /* RealmDatabase.swift */; };
 		02CDAC7A26A870CE005CD797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7926A870CE005CD797 /* AppDelegate.swift */; };
 		02CDAC7E26A870CE005CD797 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02CDAC7D26A870CE005CD797 /* ViewController.swift */; };
 		02CDAC8126A870CE005CD797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02CDAC7F26A870CE005CD797 /* Main.storyboard */; };
@@ -87,6 +93,12 @@
 		0251C30726B15DB90072D2DF /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		0251C30926B168600072D2DF /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		0251C30A26B168600072D2DF /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		029705FD26C8C8A900A57E21 /* PresenterMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterMessage.swift; sourceTree = "<group>"; };
+		0297060026C8C8F200A57E21 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		0297060226C8C97D00A57E21 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		0298426926C3DBA6003155E6 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		02B8849626C2898400CFDD8A /* PresenterRoomFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterRoomFireBase.swift; sourceTree = "<group>"; };
+		02B8849A26C376E100CFDD8A /* RealmDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDatabase.swift; sourceTree = "<group>"; };
 		02CDAC7626A870CE005CD797 /* MultipleFunction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleFunction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02CDAC7926A870CE005CD797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02CDAC7D26A870CE005CD797 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +215,32 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		029705FF26C8C8E100A57E21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0297060026C8C8F200A57E21 /* BaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		02B8849826C372FA00CFDD8A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				02B8849626C2898400CFDD8A /* PresenterRoomFireBase.swift */,
+				029705FD26C8C8A900A57E21 /* PresenterMessage.swift */,
+				0297060226C8C97D00A57E21 /* Presenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		02B8849926C376C600CFDD8A /* RealmService */ = {
+			isa = PBXGroup;
+			children = (
+				02B8849A26C376E100CFDD8A /* RealmDatabase.swift */,
+			);
+			path = RealmService;
+			sourceTree = "<group>";
+		};
 		02CDAC6D26A870CE005CD797 = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +266,9 @@
 		02CDAC7826A870CE005CD797 /* MultipleFunction */ = {
 			isa = PBXGroup;
 			children = (
+				029705FF26C8C8E100A57E21 /* View */,
+				02B8849926C376C600CFDD8A /* RealmService */,
+				02B8849826C372FA00CFDD8A /* Presenter */,
 				02CDACA926A870EC005CD797 /* Application */,
 				02CDACCD26A87B68005CD797 /* MainVC */,
 				228F95DD26A951E2001641FD /* Login */,
@@ -356,6 +397,7 @@
 			isa = PBXGroup;
 			children = (
 				228F95E326A957F3001641FD /* Global.swift */,
+				0298426926C3DBA6003155E6 /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -693,12 +735,16 @@
 				22AE90B726A976B4007C82A2 /* MessageCell.swift in Sources */,
 				02CDACCB26A87B5A005CD797 /* MainVC.swift in Sources */,
 				02CDACBC26A8716A005CD797 /* HomeVC.swift in Sources */,
+				02B8849726C2898400CFDD8A /* PresenterRoomFireBase.swift in Sources */,
 				22D4090126AA797F004485EF /* UITextFieldExtension.swift in Sources */,
+				0298426A26C3DBA6003155E6 /* Reachability.swift in Sources */,
 				22D4090A26AAB61B004485EF /* UserCell.swift in Sources */,
 				02CDACC326A8716A005CD797 /* ArrayExtension.swift in Sources */,
 				0251C30826B15DB90072D2DF /* UIImageExtension.swift in Sources */,
+				0297060326C8C97D00A57E21 /* Presenter.swift in Sources */,
 				22D4090626AAAFEC004485EF /* RoomModel.swift in Sources */,
 				0251C30B26B168600072D2DF /* ImageCell.swift in Sources */,
+				029705FE26C8C8A900A57E21 /* PresenterMessage.swift in Sources */,
 				02CDACC826A8716A005CD797 /* SideMenuCell.swift in Sources */,
 				228F95E426A957F3001641FD /* Global.swift in Sources */,
 				0251C30426B137F60072D2DF /* UIScrollViewExtension.swift in Sources */,
@@ -709,11 +755,13 @@
 				0251C30126B05A2F0072D2DF /* SearchVC.swift in Sources */,
 				22D4090D26AAC7AB004485EF /* MessageModel.swift in Sources */,
 				0204977226AC6C31000495F8 /* ChatBarView.swift in Sources */,
+				02B8849B26C376E100CFDD8A /* RealmDatabase.swift in Sources */,
 				228F95E026A951F9001641FD /* LoginVC.swift in Sources */,
 				02CDACC426A8716A005CD797 /* SideMenuVC.swift in Sources */,
 				02CDACC226A8716A005CD797 /* TabBarController.swift in Sources */,
 				22D4091126AAD7CB004485EF /* SpinnerViewController.swift in Sources */,
 				02CDAC7A26A870CE005CD797 /* AppDelegate.swift in Sources */,
+				0297060126C8C8F200A57E21 /* BaseView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

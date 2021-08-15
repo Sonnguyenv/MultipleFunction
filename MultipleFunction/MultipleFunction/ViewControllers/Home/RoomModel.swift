@@ -7,27 +7,37 @@
 
 import UIKit
 import FirebaseFirestore
+import RealmSwift
 
-struct RoomModel {
-    var id: String?
-    var name: String?
+class RoomModel: Object {
+    @objc dynamic var id: String?
+    @objc dynamic var name: String?
+    @objc dynamic var createdDate: Date = Date()
 
-    init() {}
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    override init() {}
     
     init(name: String) {
         id = nil
         self.name = name
+        self.createdDate = Date()
     }
 
     init?(document: QueryDocumentSnapshot) {
         let data = document.data()
 
-        guard let name = data["name"] as? String else {
-            return nil
+        self.id = document.documentID
+        
+        if let name = data["name"] as? String {
+            self.name = name
         }
 
-        id = document.documentID
-        self.name = name
+        if let createdDate = data["created"] as? Timestamp {
+            self.createdDate = createdDate.dateValue()
+        }
     }
 
     func toDocument() -> [String: Any] {
@@ -38,6 +48,7 @@ struct RoomModel {
             document["id"] = id
         }
 
+        document["created"] = createdDate
         return document
     }
 }

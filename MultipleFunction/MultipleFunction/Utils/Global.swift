@@ -34,6 +34,6 @@ final class Global: NSObject {
     }
 
     func clearAll() {
-        UserDefaults.standard.setValue("", forKey: Keywords.displayName)
+        self.displayName = ""
     }
 }
